@@ -1,0 +1,30 @@
+functionality:
+  name: example_python
+  description: A minimal example component.
+  arguments:
+    - type: file
+      name: --input
+      example: data.csv
+      required: true
+    - type: file
+      name: --output
+      direction: output
+      example: filtered_output.csv
+      required: true
+  resources:
+    - type: python_script
+      path: filter_projects.py
+platforms:
+  - type: docker
+    image: "python:3.10-slim"
+    setup: 
+     - type: apt
+       packages: 
+        - curl
+        - wget
+     - type: python
+       commands:
+        - pip install pandas
+
+  - type: native
+  - type: nextflow

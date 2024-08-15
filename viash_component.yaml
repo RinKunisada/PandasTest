@@ -1,0 +1,25 @@
+name: my_python_component
+
+# Define the Python component
+steps:
+  - name: run_script
+    type: python
+    path: filter_projects.py
+    inputs:
+      - name: input_file
+        type: file
+        description: Path to the input file
+      - name: output_file
+        type: file
+        description: Path to the output file
+    # Define arguments for the Python script
+    arguments:
+      - {name: input_file, type: file}
+      - {name: output_file, type: file}
+
+# Define your workflow
+workflow:
+  - run_script:
+      input_file: "path/to/your/input.txt"
+      output_file: "path/to/your/output.txt"
+

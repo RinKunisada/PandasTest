@@ -1,0 +1,14 @@
+functionality:
+  name: my_python_script
+  description: Example of running a Python script with Viash.
+  author: Rin Kunisada
+  version: "0.1"
+
+resources:
+  - type: bash
+    command: python filter_projects.py  # Ensure this points to the correct script
+
+platforms:
+  - type: native
+    executable: python
+
